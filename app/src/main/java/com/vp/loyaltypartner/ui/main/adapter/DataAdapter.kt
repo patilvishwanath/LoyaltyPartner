@@ -1,4 +1,4 @@
-package com.vp.loyaltypartner.ui.view
+package com.vp.loyaltypartner.ui.main.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,8 @@ import com.vp.loyaltypartner.data.model.Hits
 import com.vp.loyaltypartner.databinding.ItemRowBinding
 
 class DataAdapter(private val itemsList: ArrayList<Hits>,
-                  private val onClickListener: OnClickListener) : RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
+                  private val onClickListener: OnClickListener
+) : RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
     DataViewHolder(ItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))

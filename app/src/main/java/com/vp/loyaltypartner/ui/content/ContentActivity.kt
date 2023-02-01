@@ -1,4 +1,4 @@
-package com.vp.loyaltypartner.ui.view
+package com.vp.loyaltypartner.ui.content
 
 import android.os.Build
 import android.os.Bundle
@@ -9,7 +9,7 @@ import com.vp.loyaltypartner.databinding.ActivityDisplayContentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DisplayContentActivity : AppCompatActivity(){
+class ContentActivity : AppCompatActivity(){
   private lateinit var binding: ActivityDisplayContentBinding
   private var hit : Hits? = null
 

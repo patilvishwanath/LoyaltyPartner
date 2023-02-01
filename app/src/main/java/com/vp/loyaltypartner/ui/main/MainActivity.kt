@@ -1,9 +1,8 @@
-package com.vp.loyaltypartner.ui.view
+package com.vp.loyaltypartner.ui.main
 
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -13,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.vp.loyaltypartner.R
 import com.vp.loyaltypartner.data.model.Hits
 import com.vp.loyaltypartner.databinding.ActivityMainBinding
-import com.vp.loyaltypartner.ui.viewmodel.MainViewModel
+import com.vp.loyaltypartner.ui.main.viewmodel.MainViewModel
+import com.vp.loyaltypartner.ui.main.adapter.DataAdapter
+import com.vp.loyaltypartner.ui.content.ContentActivity
 import com.vp.loyaltypartner.utils.DebouncingQueryTextListener
 import com.vp.loyaltypartner.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity(){
   private fun setUpView() {
     binding.rvData.apply {
       layoutManager = LinearLayoutManager(this@MainActivity)
-      dataAdapter = DataAdapter(arrayListOf(), DataAdapter.OnClickListener{clickedData->
+      dataAdapter = DataAdapter(arrayListOf(), DataAdapter.OnClickListener{ clickedData->
         displayDialog(clickedData)
       })
       adapter = dataAdapter
@@ -52,8 +53,8 @@ class MainActivity : AppCompatActivity(){
       DialogInterface.OnClickListener { dialog, which ->
         when (which) {
           DialogInterface.BUTTON_POSITIVE -> {
-            val intent = Intent(this, DisplayContentActivity::class.java)
-            intent.putExtra(DisplayContentActivity.INTENT_HIT_OBJECT,clickedData)
+            val intent = Intent(this, ContentActivity::class.java)
+            intent.putExtra(ContentActivity.INTENT_HIT_OBJECT,clickedData)
             startActivity(intent)
           }
 
@@ -72,7 +73,7 @@ class MainActivity : AppCompatActivity(){
 
   private fun setUpSearchViewListener() {
     binding.searchView.isIconified = false
-    binding.searchView.setQuery("fruits",true)
+    binding.searchView.setQuery(getString(R.string.fruits_query_string),true)
     binding.searchView.clearFocus()
     binding.searchView.setOnQueryTextListener(DebouncingQueryTextListener(this@MainActivity) { newText ->
       newText?.let {
