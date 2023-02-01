@@ -1,3 +1,6 @@
 <resources>
-  <string name="app_name">LoyaltyPartner</string>
+  <string name="app_name">PixBay</string>
+  <string name="dialog_message">Hi!! Do you want to see more details ?</string>
+  <string name="yes">Yes</string>
+  <string name="no">No</string>
 </resources>
