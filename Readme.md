@@ -10,7 +10,6 @@
 It simply loads data from API. Data will be always loaded from local database. Remote data (from API) and Local data is always synchronized.
 - This makes it offline capable 😃.
 - Clean and Simple Material UI.
-- It supports dark theme too 🌗.
 
 *PixBay API is used in this app.
 
